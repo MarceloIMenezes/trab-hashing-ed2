@@ -9,9 +9,15 @@ class Diretorio {
         Balde **balde;
         int dglobal;
         int tamanho;
+
+        Balde* baldeProcurado(string chave);
     public:
         Diretorio(int balde_size);
-        string buscarChave(string chave);
+
+        int getDGlobal();
+
+        void insereChave(string chave);
+        bool buscarChave(string chave);
 };
 
 #endif //DIRETORIO_HPP

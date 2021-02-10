@@ -13,13 +13,33 @@ Diretorio::Diretorio(int balde_size) {
         balde[i] = first;
 }
 
-string Diretorio::buscarChave(string chave) {
+int Diretorio::getDGlobal() {
+    return this->dglobal;
+}
+
+Balde* Diretorio::baldeProcurado(string chave) {
     int indiceBalde = std::stoi(chave.substr(0, this->dglobal), nullptr, 2);
-    Balde *baldeProcurado = this->balde[indiceBalde];
+    return this->balde[indiceBalde];
+}
+
+void Diretorio::insereChave(string chave) {
+    Balde* baldeProcurado = this->baldeProcurado(chave);
+    if (baldeProcurado->temEspaco()) {
+        baldeProcurado->insereChave(chave);
+    } else {
+        if (baldeProcurado->getDLocal() == this->getDGlobal()) {
+            //duplica tam diretorio
+        }
+        //divide balde e incremenda dlocal
+    }
+}
+
+bool Diretorio::buscarChave(string chave) {
+    Balde* baldeProcurado = this->baldeProcurado(chave);
     for (int i = 0; i < baldeProcurado->getTamanhoM(); i++) {
         if (baldeProcurado->getPseudoChave(i) == chave)
-            return baldeProcurado->getPseudoChave(i);
+            return true;
     }
-    return "Chave não encontrada";
+    return false;
 }
 
