@@ -13,10 +13,15 @@ class Diretorio {
         Balde* baldeProcurado(string chave);
         void divideBaldes(Balde* baldeProcurado, int indiceBalde);
         void redistribuiChaves(Balde* bNovo, Balde* bAntigo, int indiceBalde);
+        void duplicaTamanho();
+
+        void addDGlobal();
+        void setTamanho();
     public:
         Diretorio(int balde_size);
 
         int getDGlobal();
+        int getTamanho();
 
         void insereChave(string chave);
         bool buscarChave(string chave);
