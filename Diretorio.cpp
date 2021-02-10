@@ -22,6 +22,18 @@ Balde* Diretorio::baldeProcurado(string chave) {
     return this->balde[indiceBalde];
 }
 
+void Diretorio::divideBaldes(Balde* baldeProcurado, int indiceBalde) {
+    Balde* novo = new Balde(baldeProcurado->getTamanhoM(), baldeProcurado->getDLocal());
+    novo->addDLocal();
+    baldeProcurado->addDLocal();
+    this->balde[indiceBalde] = novo;
+    this->redistribuiChaves(novo, baldeProcurado);
+}
+
+void Diretorio::redistribuiChaves(Balde* b1, Balde* b2) {
+
+}
+
 void Diretorio::insereChave(string chave) {
     Balde* baldeProcurado = this->baldeProcurado(chave);
     if (baldeProcurado->temEspaco()) {
@@ -31,6 +43,8 @@ void Diretorio::insereChave(string chave) {
             //duplica tam diretorio
         }
         //divide balde e incremenda dlocal
+        int indiceBalde = std::stoi(chave.substr(0, this->dglobal), nullptr, 2);
+        this->divideBaldes(baldeProcurado, indiceBalde);
     }
 }
 

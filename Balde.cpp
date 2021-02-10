@@ -17,6 +17,7 @@ string Balde::getPseudoChave(int i) { return this->pseudochaves[i]; }
 void Balde::setPseudoChave(int i, string chave) { this->pseudochaves[i] = chave; }
 
 int Balde::getDLocal() { return this->dlocal; }
+void Balde::addDLocal() { this->dlocal++; }
 
 bool Balde::temEspaco() {
     for (int i = 0; i < this->getTamanhoM(); i++) {

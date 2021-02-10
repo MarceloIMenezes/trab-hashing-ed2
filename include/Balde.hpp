@@ -17,6 +17,7 @@ class Balde {
         int getTamanhoM();
         string getPseudoChave(int i);
         int getDLocal();
+        void addDLocal();
 
         bool temEspaco();
         void insereChave(string chave);
