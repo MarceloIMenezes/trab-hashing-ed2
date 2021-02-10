@@ -8,4 +8,6 @@ class Balde {
         int dlocal;
     public: 
         Balde(int m, int dlocal);
+        int getTamanhoM();
+        string getPseudoChave(int i);
 };

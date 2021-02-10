@@ -1,5 +1,5 @@
 #include <vector>
-#include "Balde.hpp"
+#include "./Balde.hpp"
 
 class Diretorio {
     private: 
@@ -7,5 +7,6 @@ class Diretorio {
         int dglobal;
         int tamanho;
     public:
-        Diretorio(int tamanho, int dglobal, int balde_size);
+        Diretorio();
+        string buscarChave(string chave);
 };
