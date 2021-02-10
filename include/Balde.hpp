@@ -10,14 +10,16 @@ class Balde {
         int tamanhoM;
         int dlocal;
 
-        void setPseudoChave(int i, string chave);
     public: 
         Balde(int m, int dlocal);
 
         int getTamanhoM();
         string getPseudoChave(int i);
+        void setPseudoChave(int i, string chave);
         int getDLocal();
         void addDLocal();
+
+        void removeChave(string chave);
 
         bool temEspaco();
         void insereChave(string chave);

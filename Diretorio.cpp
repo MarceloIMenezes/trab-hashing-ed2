@@ -18,7 +18,7 @@ int Diretorio::getDGlobal() {
 }
 
 Balde* Diretorio::baldeProcurado(string chave) {
-    int indiceBalde = std::stoi(chave.substr(0, this->dglobal), nullptr, 2);
+    int indiceBalde = std::stoi(chave.substr(0, this->getDGlobal()), nullptr, 2);
     return this->balde[indiceBalde];
 }
 
@@ -27,11 +27,19 @@ void Diretorio::divideBaldes(Balde* baldeProcurado, int indiceBalde) {
     novo->addDLocal();
     baldeProcurado->addDLocal();
     this->balde[indiceBalde] = novo;
-    this->redistribuiChaves(novo, baldeProcurado);
+    this->redistribuiChaves(novo, baldeProcurado, indiceBalde);
 }
 
-void Diretorio::redistribuiChaves(Balde* b1, Balde* b2) {
-
+void Diretorio::redistribuiChaves(Balde* bNovo, Balde* bAntigo, int indiceNovo) {
+    int j = 0;
+    for (int i=0; i < bAntigo->getTamanhoM(); i++) {
+        int indiceVelho = std::stoi(bAntigo->getPseudoChave(i).substr(0, this->getDGlobal()), nullptr, 2);
+        if (indiceNovo == indiceVelho) {
+            bNovo->setPseudoChave(j, bAntigo->getPseudoChave(i));
+            bAntigo->removeChave(bAntigo->getPseudoChave(i));
+            j++;
+        }
+    }
 }
 
 void Diretorio::insereChave(string chave) {
@@ -43,7 +51,7 @@ void Diretorio::insereChave(string chave) {
             //duplica tam diretorio
         }
         //divide balde e incremenda dlocal
-        int indiceBalde = std::stoi(chave.substr(0, this->dglobal), nullptr, 2);
+        int indiceBalde = std::stoi(chave.substr(0, this->getDGlobal()), nullptr, 2);
         this->divideBaldes(baldeProcurado, indiceBalde);
     }
 }

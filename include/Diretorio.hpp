@@ -12,7 +12,7 @@ class Diretorio {
 
         Balde* baldeProcurado(string chave);
         void divideBaldes(Balde* baldeProcurado, int indiceBalde);
-        void redistribuiChaves(Balde* b1, Balde* b2);
+        void redistribuiChaves(Balde* bNovo, Balde* bAntigo, int indiceBalde);
     public:
         Diretorio(int balde_size);
 
