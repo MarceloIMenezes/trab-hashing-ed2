@@ -1,3 +1,6 @@
+#ifndef DIRETORIO_HPP
+#define DIRETORIO_HPP
+
 #include <vector>
 #include "./Balde.hpp"
 
@@ -7,6 +10,8 @@ class Diretorio {
         int dglobal;
         int tamanho;
     public:
-        Diretorio();
+        Diretorio(int balde_size);
         string buscarChave(string chave);
 };
+
+#endif //DIRETORIO_HPP

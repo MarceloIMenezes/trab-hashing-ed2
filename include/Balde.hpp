@@ -1,3 +1,6 @@
+#ifndef BALDE_HPP
+#define BALDE_HPP
+
 #include <string>
 using namespace std;
 
@@ -11,3 +14,5 @@ class Balde {
         int getTamanhoM();
         string getPseudoChave(int i);
 };
+
+#endif //BALDE_HPP

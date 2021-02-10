@@ -2,12 +2,15 @@
 #include "./include/Diretorio.hpp"
 #include "./include/Balde.hpp"
 
-Diretorio::Diretorio() {
+Diretorio::Diretorio(int balde_size) {
     this->dglobal = 1;
     this->tamanho = pow(2, this->dglobal);
+
     this->balde = new Balde*[this->tamanho];
-    for (int i = 0; i < tamanho; i++)
-        balde[i] = NULL;
+
+    Balde* first = new Balde(balde_size, 1);
+    for (int i = 0; i < this->tamanho; i++)
+        balde[i] = first;
 }
 
 string Diretorio::buscarChave(string chave) {
@@ -19,3 +22,4 @@ string Diretorio::buscarChave(string chave) {
     }
     return "Chave não encontrada";
 }
+
