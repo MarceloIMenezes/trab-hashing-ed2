@@ -8,4 +8,4 @@ class Balde {
         int dlocal;
     public: 
         Balde(int m, int dlocal);
-}
+};
