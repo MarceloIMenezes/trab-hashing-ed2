@@ -1,10 +1,11 @@
+#include <vector>
 #include "Balde.hpp"
 
 class Diretorio {
     private: 
-        Balde* balde;
+        Balde **balde;
         int dglobal;
         int tamanho;
     public:
-        Diretorio(int balde_size, int dglobal);
+        Diretorio(int tamanho, int dglobal, int balde_size);
 };
