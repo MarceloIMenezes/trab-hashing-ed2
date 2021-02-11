@@ -7,7 +7,7 @@
 #include "./include/Balde.hpp"
 using namespace std;
 
-#define N 10
+#define N 500
 
 void geraChavesAleatorias(int nBits, string* chave) {
     srand(time(NULL));
@@ -42,12 +42,15 @@ int main () {
     Diretorio* diretorio = new Diretorio(nBits, tamanhoBalde);
     
     string *chaves = new string[N];
-    //geraChavesAleatorias(nBits, chaves);
-    geraChavesPadronizadas(nBits, chaves);
+    geraChavesAleatorias(nBits, chaves);
+    //geraChavesPadronizadas(nBits, chaves);
     
     for (int i = 0; i < N; i++)
         diretorio->insereChave(chaves[i]);
-    diretorio->imprimeDiretorio();
-    
+    //diretorio->imprimeDiretorio();
+    if (diretorio->buscarChave(chaves[0])) {
+        cout << "A chave " << chaves[0] << " está armazenada." << endl;
+    }
+    cout << "Fator de carga da tabela: " << (float)N/(diretorio->getTamanho()*tamanhoBalde) << endl;
     return 0;
 }
