@@ -26,6 +26,7 @@ class Diretorio {
 
         void insereChave(string chave);
         bool buscarChave(string chave);
+        void imprimeDiretorio();
 };
 
 #endif //DIRETORIO_HPP

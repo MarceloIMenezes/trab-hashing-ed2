@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <iostream>
 #include "./include/Diretorio.hpp"
 #include "./include/Balde.hpp"
 
@@ -96,5 +97,15 @@ bool Diretorio::buscarChave(string chave) {
             return true;
     }
     return false;
+}
+
+void Diretorio::imprimeDiretorio() {
+    int tamanhoBalde = this->balde[0]->getTamanhoM();
+    for(int i=0; i < this->getTamanho(); i++) {
+        std::cout << "Balde " << i + 1 << endl;
+        for(int j=0; j < tamanhoBalde; j++) {
+            std::cout << this->balde[i]->getPseudoChave(j) << endl;
+        }
+    }
 }
 
