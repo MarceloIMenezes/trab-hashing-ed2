@@ -45,12 +45,16 @@ int main () {
     geraChavesAleatorias(nBits, chaves);
     //geraChavesPadronizadas(nBits, chaves);
     
-    for (int i = 0; i < N; i++)
-        diretorio->insereChave(chaves[i]);
-    //diretorio->imprimeDiretorio();
-    if (diretorio->buscarChave(chaves[0])) {
-        cout << "A chave " << chaves[0] << " está armazenada." << endl;
+    int nInseridos = N;
+    for (int i = 0; i < N; i++) {
+        if (!(diretorio->buscarChave(chaves[i])))
+            diretorio->insereChave(chaves[i]);
+        else
+            nInseridos--;
     }
-    cout << "Fator de carga da tabela: " << (float)N/(diretorio->getTamanho()*tamanhoBalde) << endl;
+    //diretorio->imprimeDiretorio();
+    cout << "Fator de carga da tabela: " << (float)nInseridos/(diretorio->getTamanho()*tamanhoBalde) << endl;
+    cout << "Memoria ocupada: " << (diretorio->getTamanho()*tamanhoBalde) << endl;
+
     return 0;
 }
