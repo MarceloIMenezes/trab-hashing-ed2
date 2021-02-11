@@ -8,6 +8,7 @@ class Diretorio {
     private: 
         Balde **balde;
         int dglobal;
+        int dglobalMax;
         int tamanho;
 
         Balde* baldeProcurado(string chave);
@@ -18,7 +19,7 @@ class Diretorio {
         void addDGlobal();
         void setTamanho();
     public:
-        Diretorio(int balde_size);
+        Diretorio(int dglobalMax, int balde_size);
 
         int getDGlobal();
         int getTamanho();

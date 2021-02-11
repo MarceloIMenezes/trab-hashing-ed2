@@ -1,8 +1,13 @@
 #include <math.h>
+#include <stdio.h>
 #include "./include/Diretorio.hpp"
 #include "./include/Balde.hpp"
 
-Diretorio::Diretorio(int balde_size) {
+Diretorio::Diretorio(int dglobalMax, int balde_size) {
+    if (dglobalMax > 0)
+        this->dglobalMax = dglobalMax;
+    else
+        this->dglobalMax = 1;
     this->dglobal = 1;
     this->tamanho = pow(2, this->dglobal);
 
@@ -18,6 +23,9 @@ int Diretorio::getDGlobal() {
 }
 void Diretorio::addDGlobal() {
     this->dglobal++;
+    if (this->dglobal > this->dglobalMax) {
+        exit(-1);
+    }
 }
 int Diretorio::getTamanho() {
     return this->tamanho;
