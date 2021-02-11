@@ -15,8 +15,9 @@ Diretorio::Diretorio(int dglobalMax, int balde_size) {
     this->balde = new Balde*[this->tamanho];
 
     Balde* first = new Balde(balde_size, 1);
-    for (int i = 0; i < this->tamanho; i++)
-        balde[i] = first;
+    Balde* second = new Balde(balde_size, 1);
+    this->balde[0] = first;
+    this->balde[1] = second;
 }
 
 int Diretorio::getDGlobal() {
@@ -69,10 +70,12 @@ void Diretorio::duplicaTamanho() {
 
     for (int i=0; i < tamanho; i++) {
         temp[i*2] = this->balde[i];
+        temp[i*2 + 1] = this->balde[i];
     }
-    this->balde = temp;
 
-    delete[] temp;
+    delete[] this->balde;
+
+    this->balde = temp;
 }
 
 void Diretorio::insereChave(string chave) {
@@ -87,6 +90,7 @@ void Diretorio::insereChave(string chave) {
         //divide balde e incremenda dlocal
         int indiceBalde = std::stoi(chave.substr(0, this->getDGlobal()), nullptr, 2);
         this->divideBaldes(baldeProcurado, indiceBalde);
+        this->insereChave(chave);
     }
 }
 
