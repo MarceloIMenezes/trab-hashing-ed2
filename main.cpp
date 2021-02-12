@@ -48,7 +48,7 @@ int main () {
     
     string *chaves = new string[N];
     
-    if (info == "2")
+    if (info == "1")
         geraChavesAleatorias(nBits, chaves);
     else
         geraChavesPadronizadas(nBits, chaves);
