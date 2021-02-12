@@ -14,8 +14,8 @@ Diretorio::Diretorio(int dglobalMax, int balde_size) {
 
     this->balde = new Balde*[this->tamanho];
 
-    Balde* first = new Balde(balde_size, 1);
-    Balde* second = new Balde(balde_size, 1);
+    Balde* first = new Balde(balde_size, 0);
+    Balde* second = new Balde(balde_size, 0);
     this->balde[0] = first;
     this->balde[1] = second;
 }
