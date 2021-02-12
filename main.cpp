@@ -41,9 +41,17 @@ int main () {
 
     Diretorio* diretorio = new Diretorio(nBits, tamanhoBalde);
     
+    string info;
+    cout << "Gerar chaves aleatórias: digite 1" << endl;
+    cout << "Gerar chaves padronizadas: digite 2" << endl;
+    cin >> info;
+    
     string *chaves = new string[N];
-    geraChavesAleatorias(nBits, chaves);
-    //geraChavesPadronizadas(nBits, chaves);
+    
+    if (info == "2")
+        geraChavesAleatorias(nBits, chaves);
+    else
+        geraChavesPadronizadas(nBits, chaves);
     
     int nInseridos = N;
     for (int i = 0; i < N; i++) {
