@@ -16,6 +16,7 @@ Diretorio::Diretorio(int dglobalMax, int balde_size) {
 
     Balde* first = new Balde(balde_size, 0);
     Balde* second = new Balde(balde_size, 0);
+    this->nBaldes = 2;
     this->balde[0] = first;
     this->balde[1] = second;
 }
@@ -29,6 +30,13 @@ void Diretorio::addDGlobal() {
         exit(-1);
     }
 }
+void Diretorio::addnBaldes() {
+    this->nBaldes++;
+}
+int Diretorio::getnBaldes() {
+    return this->nBaldes;
+}
+
 int Diretorio::getTamanho() {
     return this->tamanho;
 }
@@ -43,6 +51,7 @@ Balde* Diretorio::baldeProcurado(string chave) {
 
 void Diretorio::divideBaldes(Balde* baldeProcurado, int indiceBalde) {
     Balde* novo = new Balde(baldeProcurado->getTamanhoM(), baldeProcurado->getDLocal());
+    this->addnBaldes();
     novo->addDLocal();
     baldeProcurado->addDLocal();
     this->balde[indiceBalde] = novo;

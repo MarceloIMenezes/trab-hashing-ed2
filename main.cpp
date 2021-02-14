@@ -61,8 +61,8 @@ int main () {
             nInseridos--;
     }
     //diretorio->imprimeDiretorio();
-    cout << "Fator de carga da tabela: " << (float)nInseridos/(diretorio->getTamanho()*tamanhoBalde) << endl;
-    cout << "Memoria ocupada: " << (diretorio->getTamanho()*tamanhoBalde) << endl;
+    cout << "Fator de carga da tabela: " << (float)nInseridos/(diretorio->getnBaldes()*tamanhoBalde) << endl;
+    cout << "Memoria ocupada: " << (diretorio->getnBaldes()*tamanhoBalde) << endl;
 
     return 0;
 }

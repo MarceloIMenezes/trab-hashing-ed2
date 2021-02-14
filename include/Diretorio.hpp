@@ -10,6 +10,7 @@ class Diretorio {
         int dglobal;
         int dglobalMax;
         int tamanho;
+        int nBaldes;
 
         Balde* baldeProcurado(string chave);
         void divideBaldes(Balde* baldeProcurado, int indiceBalde);
@@ -17,12 +18,14 @@ class Diretorio {
         void duplicaTamanho();
 
         void addDGlobal();
+        void addnBaldes();
         void setTamanho();
     public:
         Diretorio(int dglobalMax, int balde_size);
 
         int getDGlobal();
         int getTamanho();
+        int getnBaldes();
 
         void insereChave(string chave);
         bool buscarChave(string chave);
